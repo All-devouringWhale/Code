@@ -1,4 +1,4 @@
-# Habit RPG prototype
+# Habit RPG prototype (CODE)
 
 Single-file, offline-first prototype. Open `index.html` in any browser; all data stays in local storage.
 
