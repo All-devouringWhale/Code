@@ -1,47 +1,28 @@
-# Habit RPG prototype
+# Habit RPG: native Android project (Capacitor)
 
-Single-file, offline-first prototype. Open `index.html` in any browser; all data stays in local storage.
+Wraps `../prototype/index.html` in a native Android app. Open the repo root in VS Code.
 
-Design references: Loop Habit Tracker (habit strength score, calendar, streaks, settings) and Habitica (HP, XP, gold, rewards).
+## One-time setup
+1. Install **Node 22+**, **JDK 21** and the **Android SDK**. The easiest way to get the SDK and JDK is to install Android Studio once (you do not have to use it afterwards). Set `ANDROID_HOME` to the SDK folder (Android Studio shows it under Settings, Android SDK).
+2. In VS Code: Terminal, then `cd app` and `npm install`.
+3. `npm run setup` creates the `android/` folder. Commit it: it is where the native widget and calendar code will live.
+4. `npm run doctor` checks your setup.
 
-## Pages (bottom bar)
-- **Habits**: Today view (what is left to do) and Week grid, quick notes, widget preview
-- **Chores**: daily chores that reset each day
-- **Quests**: one-time to-dos on a quest board with ranks and deadlines
-- **Shop**: customizable rewards with purchase limits
-- **Settings** (gear icon): theme (auto, light, dark, pure black), first day of the week, extended day, sorting, widget transparency, backup and import
-# Habit RPG prototype
+## Every day
+| Command | What it does |
+|---|---|
+| `npm run web` | Preview the web app at http://localhost:8080 |
+| `npm run sync` | Copy `prototype/index.html` into the Android project |
+| `npm run apk` | Sync, then build `android/app/build/outputs/apk/debug/app-debug.apk` |
+| `npm run run` | Build and run on a connected phone (USB debugging) or emulator |
+| `npm run studio` | Open the Android project in Android Studio |
 
-Single-file, offline-first prototype. Open `index.html` in any browser; all data stays in local storage.
+In VS Code you can also press Ctrl+Shift+B (Cmd+Shift+B on Mac) to build the APK, or use Terminal, Run Task and pick a "Habit RPG" task.
 
-Design references: Loop Habit Tracker (habit strength score, calendar, streaks, settings) and Habitica (HP, XP, gold, rewards).
+## Install the APK on your phone
+Copy `app-debug.apk` to the phone and open it, or run `adb install -r app/android/app/build/outputs/apk/debug/app-debug.apk`.
 
-## Pages (bottom bar)
-- **Habits**: Today view (what is left to do) and Week grid, quick notes, widget preview
-- **Chores**: daily chores that reset each day
-- **Quests**: one-time to-dos on a quest board with ranks, deadlines and emoji badges
-- **Shop**: rewards with purchase limits, added and edited from the round + button
-- **Settings** (gear icon): theme (auto, light, dark, pure black), first day of the week, extended day, sorting, widget transparency, backup and import
-
-## Habit templates
-Yes/No, Measurable, Timed (stopwatch and timer, auto-logged), Pomodoro, Check-in counter (5 minute cooldown).
-Each habit has an emoji icon, a difficulty level and a type weight that set its XP and gold.
-
-## Levels
-100 levels in 10 tiers with titles and a quote per level. Every level costs more XP than the last, and the plateau tiers (3, 6, 9) raise the cost of all later levels. Tap "Journey" under the XP bar to see them. Quotes are short, widely shared lines; some are translations or attributed, so check the source before sharing.
-
-## Other
-- Rest day passes protect streaks for a day (streaks, strength and HP)
-- Gold and XP are kept when you delete habits, chores or quests, or change a difficulty
-- Habit screen: overview, score chart, history, calendar, best streaks, notes, difficulty, delete
-
-Throwaway prototype for the planned React/Expo build. Reminders, calendar access and real widgets need the native app.
-
-## Habit templates
-Yes/No, Measurable, Timed (stopwatch and timer, auto-logged), Pomodoro, Check-in counter (5 minute cooldown).
-Each habit has an emoji icon, a difficulty level and a type weight that set its XP and gold.
-
-## Habit screen
-Overview, score chart, history, calendar, best streaks, notes, difficulty, delete.
-
-Throwaway prototype for the planned React/Expo build. Reminders and real widgets need the native app.
+## Troubleshooting
+- "SDK location not found": set `ANDROID_HOME`, or create `android/local.properties` containing `sdk.dir=/path/to/Android/Sdk`.
+- Java version errors: make sure `java -version` shows 21.
+- Capacitor packages must all be the same major version.
