@@ -2,6 +2,15 @@
   "name": "habit-rpg-app",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "web": "node scripts/copy-web.js && npx --yes http-server www -p 8080 -c-1",
+    "setup": "node scripts/copy-web.js && cap add android && cap sync android",
+    "sync": "node scripts/copy-web.js && cap sync android",
+    "apk": "node scripts/copy-web.js && cap sync android && node scripts/gradle.js assembleDebug",
+    "run": "node scripts/copy-web.js && cap run android",
+    "studio": "cap open android",
+    "doctor": "cap doctor"
+  },
   "dependencies": {
     "@capacitor/android": "^8.0.0",
     "@capacitor/core": "^8.0.0"
