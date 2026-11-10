@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Habit RPG: install", "type": "shell", "command": "npm install", "options": { "cwd": "${workspaceFolder}/app" }, "problemMatcher": [] },
+    { "label": "Habit RPG: create Android project (first time only)", "type": "shell", "command": "npm run setup", "options": { "cwd": "${workspaceFolder}/app" }, "problemMatcher": [] },
+    { "label": "Habit RPG: sync web app to Android", "type": "shell", "command": "npm run sync", "options": { "cwd": "${workspaceFolder}/app" }, "problemMatcher": [] },
+    { "label": "Habit RPG: build debug APK", "type": "shell", "command": "npm run apk", "options": { "cwd": "${workspaceFolder}/app" }, "group": { "kind": "build", "isDefault": true }, "problemMatcher": [] },
+    { "label": "Habit RPG: run on phone or emulator", "type": "shell", "command": "npm run run", "options": { "cwd": "${workspaceFolder}/app" }, "problemMatcher": [] },
+    { "label": "Habit RPG: open in Android Studio", "type": "shell", "command": "npm run studio", "options": { "cwd": "${workspaceFolder}/app" }, "problemMatcher": [] },
+    { "label": "Habit RPG: check setup", "type": "shell", "command": "npm run doctor", "options": { "cwd": "${workspaceFolder}/app" }, "problemMatcher": [] }
+  ]
+}
